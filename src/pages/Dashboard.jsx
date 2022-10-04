@@ -1,5 +1,5 @@
-function Dashboard() {
-    return <div className="title"> Dashboard</div>;
+function Home() {
+    return <div className="title"> Trang chủ</div>;
 }
 
-export default Dashboard;
+export default Home;

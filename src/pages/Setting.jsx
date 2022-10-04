@@ -1,5 +1,5 @@
 function Setting() {
-    return <div className="title"> Setting</div>;
+    return <div className="title">Cài đặt</div>;
 }
 
 export default Setting;

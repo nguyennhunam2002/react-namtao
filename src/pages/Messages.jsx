@@ -1,5 +1,5 @@
 function Messages() {
-    return <div className="title"> Messages</div>;
+    return <div className="title">Tin nhắn</div>;
 }
 
 export default Messages;

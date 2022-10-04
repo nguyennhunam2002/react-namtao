@@ -11,77 +11,77 @@ import SidebarMenu from "./SidebarMenu";
 const routes = [
   {
     path: "/",
-    name: "Dashboard",
+    name: "Trang chủ",
     icon: <FaHome />,
   },
   {
     path: "/users",
-    name: "Users",
+    name: "Người dùng",
     icon: <FaUser />,
   },
   {
     path: "/messages",
-    name: "Messages",
+    name: "Tin nhắn",
     icon: <MdMessage />,
   },
   {
     path: "/analytics",
-    name: "Analytics",
+    name: "Thống kê",
     icon: <BiAnalyse />,
   },
   {
     path: "/file-manager",
-    name: "File Manager",
+    name: "Quản lý tập tin",
     icon: <AiTwotoneFileExclamation />,
     subRoutes: [
       {
         path: "/settings/profile",
-        name: "Profile ",
+        name: "Thông tin ",
         icon: <FaUser />,
       },
       {
         path: "/settings/2fa",
-        name: "2FA",
+        name: "Bảo mật",
         icon: <FaLock />,
       },
       {
         path: "/settings/billing",
-        name: "Billing",
+        name: "Thanh toán",
         icon: <FaMoneyBill />,
       },
     ],
   },
   {
     path: "/order",
-    name: "Order",
+    name: "Đặt hàng",
     icon: <BsCartCheck />,
   },
   {
     path: "/settings",
-    name: "Settings",
+    name: "Cài đặt",
     icon: <BiCog />,
     exact: true,
     subRoutes: [
       {
         path: "/settings/profile",
-        name: "Profile ",
+        name: "Thông tin ",
         icon: <FaUser />,
       },
       {
         path: "/settings/2fa",
-        name: "2FA",
+        name: "Bảo mật",
         icon: <FaLock />,
       },
       {
         path: "/settings/billing",
-        name: "Billing",
+        name: "Thanh toán",
         icon: <FaMoneyBill />,
       },
     ],
   },
   {
     path: "/saved",
-    name: "Saved",
+    name: "Yêu thích",
     icon: <AiFillHeart />,
   },
 ];
@@ -148,7 +148,7 @@ const SideBar = ({ children }) => {
                   exit="hidden"
                   className="logo"
                 >
-                  DoSomeCoding
+                  Namngayxua
                 </motion.h1>
               )}
             </AnimatePresence>
@@ -169,7 +169,7 @@ const SideBar = ({ children }) => {
                   exit="hidden"
                   variants={inputAnimation}
                   type="text"
-                  placeholder="Search"
+                  placeholder="Tìm kiếm"
                 />
               )}
             </AnimatePresence>

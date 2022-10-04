@@ -22,7 +22,7 @@ function App() {
           <Route path="/order" element={<Order />} />
           <Route path="/saved" element={<Saved />} />
           <Route path="/settings" element={<Setting />} />
-          <Route path="*" element={<> not found</>} />
+          <Route path="*" element={<h1>Rỗng</h1>} />
         </Routes>
       </SideBar>
     </Router>

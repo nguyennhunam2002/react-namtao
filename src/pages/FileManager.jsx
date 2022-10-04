@@ -1,5 +1,5 @@
 function FileManager() {
-  return <div className="title"> File Manager</div>;
+  return <div className="title">Quản lý tập tin</div>;
 }
 
 export default FileManager;
