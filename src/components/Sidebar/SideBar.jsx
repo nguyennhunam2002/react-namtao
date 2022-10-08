@@ -1,12 +1,13 @@
 import { NavLink } from "react-router-dom";
 import { FaBars, FaHome, FaLock, FaMoneyBill, FaUser } from "react-icons/fa";
-import { MdMessage } from "react-icons/md";
-import { BiAnalyse, BiSearch } from "react-icons/bi";
+import { BiSearch } from "react-icons/bi";
 import { BiCog } from "react-icons/bi";
-import { AiFillHeart, AiTwotoneFileExclamation } from "react-icons/ai";
+import { AiFillHeart } from "react-icons/ai";
 import { BsCartCheck } from "react-icons/bs";
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
+import { AiFillDatabase } from "react-icons/ai";
+import { AiOutlineOrderedList } from "react-icons/ai";
 import SidebarMenu from "./SidebarMenu";
 const routes = [
   {
@@ -15,24 +16,19 @@ const routes = [
     icon: <FaHome />,
   },
   {
-    path: "/users",
-    name: "Người dùng",
-    icon: <FaUser />,
-  },
-  {
-    path: "/messages",
-    name: "Tin nhắn",
-    icon: <MdMessage />,
+    path: "/product-manager",
+    name: "Quản lý sản phẩm",
+    icon: <AiFillDatabase />,
   },
   {
     path: "/analytics",
     name: "Thống kê",
-    icon: <BiAnalyse />,
+    icon: <AiOutlineOrderedList />,
   },
   {
-    path: "/file-manager",
-    name: "Quản lý tập tin",
-    icon: <AiTwotoneFileExclamation />,
+    path: "/account-manager",
+    name: "Quản lý tài khoản",
+    icon: <FaUser />,
     subRoutes: [
       {
         path: "/settings/profile",
