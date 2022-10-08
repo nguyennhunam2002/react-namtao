@@ -16,39 +16,39 @@ const routes = [
     icon: <FaHome />,
   },
   {
-    path: "/product-manager",
+    path: "/qlsanpham",
     name: "Quản lý sản phẩm",
     icon: <AiFillDatabase />,
   },
   {
-    path: "/analytics",
+    path: "/thongke",
     name: "Thống kê",
     icon: <AiOutlineOrderedList />,
   },
   {
-    path: "/account-manager",
+    path: "/qltaikhoan",
     name: "Quản lý tài khoản",
     icon: <FaUser />,
     subRoutes: [
       {
-        path: "/settings/profile",
+        path: "/qltaikhoan/thongtin",
         name: "Thông tin ",
         icon: <FaUser />,
       },
       {
-        path: "/settings/2fa",
+        path: "/qltaikhoan/baomat",
         name: "Bảo mật",
         icon: <FaLock />,
       },
       {
-        path: "/settings/billing",
+        path: "/qltaikhoan/thanhtoan",
         name: "Thanh toán",
         icon: <FaMoneyBill />,
       },
     ],
   },
   {
-    path: "/order",
+    path: "/dathang",
     name: "Đặt hàng",
     icon: <BsCartCheck />,
   },
@@ -76,7 +76,7 @@ const routes = [
     ],
   },
   {
-    path: "/saved",
+    path: "/like",
     name: "Yêu thích",
     icon: <AiFillHeart />,
   },

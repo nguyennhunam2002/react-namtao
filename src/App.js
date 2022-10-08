@@ -1,27 +1,27 @@
 import "./App.css";
 import SideBar from "./components/Sidebar/SideBar";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import Dashboard from "./pages/Dashboard";
-import Users from "./pages/Users";
-import Messages from "./pages/Messages";
-import FileManager from "./pages/FileManager";
-import Analytics from "./pages/Analytics";
-import Order from "./pages/Order";
-import Saved from "./pages/Saved";
-import Setting from "./pages/Setting";
+import Home from "./pages/Home";
+import QLSanPham from "./pages/QLSanPham";
+import ThongKe from "./pages/ThongKe";
+import QLTaiKhoan from "./pages/QLTaiKhoan";
+import TTTaiKhoan from "./pages/ThongTinTaiKhoan";
+import BaoMatTT from "./pages/BaoMatTT";
+import ThanhToan from "./pages/ThanhToan";
+import DatHang from "./pages/DatHang";
 function App() {
   return (
     <Router>
       <SideBar>
         <Routes>
-          <Route path="/" element={<Dashboard />} />
-          <Route path="/users" element={<Users />} />
-          <Route path="/messages" element={<Messages />} />
-          <Route path="/analytics" element={<Analytics />} />
-          <Route path="/file-manager" element={<FileManager />} />
-          <Route path="/order" element={<Order />} />
-          <Route path="/saved" element={<Saved />} />
-          <Route path="/settings" element={<Setting />} />
+          <Route path="/" element={<Home />} />
+          <Route path="/QLSanPham" element={<QLSanPham />} />
+          <Route path="/thongke" element={<ThongKe />} />
+          <Route path="/qltaikhoan" element={<QLTaiKhoan />} />
+          <Route path="/qltaikhoan/thongtin" element={<TTTaiKhoan />} />
+          <Route path="/qltaikhoan/baomat" element={<BaoMatTT />} />
+          <Route path="/qltaikhoan/thanhtoan" element={<ThanhToan />} />
+          <Route path="/dathang" element={<DatHang />} />
           <Route path="*" element={<h1>Rỗng</h1>} />
         </Routes>
       </SideBar>
