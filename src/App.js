@@ -3,12 +3,12 @@ import SideBar from "./components/Sidebar/SideBar";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Home from "./pages/Home";
 import QLSanPham from "./pages/QLSanPham";
-import ThongKe from "./pages/ThongKe";
 import QLTaiKhoan from "./pages/QLTaiKhoan";
 import TTTaiKhoan from "./pages/ThongTinTaiKhoan";
 import BaoMatTT from "./pages/BaoMatTT";
 import ThanhToan from "./pages/ThanhToan";
 import DatHang from "./pages/DatHang";
+import ThongKe from "./components/ThongKe/ThongKe";
 function App() {
   return (
     <Router>
