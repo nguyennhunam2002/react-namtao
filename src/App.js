@@ -2,7 +2,7 @@ import "./App.css";
 import SideBar from "./components/Sidebar/SideBar";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Home from "./pages/Home";
-import QLSanPham from "./pages/QLSanPham";
+import ProductManager from "./components/ManagerProduct/Product";
 import QLTaiKhoan from "./pages/QLTaiKhoan";
 import TTTaiKhoan from "./pages/ThongTinTaiKhoan";
 import BaoMatTT from "./pages/BaoMatTT";
@@ -15,7 +15,7 @@ function App() {
       <SideBar>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/QLSanPham" element={<QLSanPham />} />
+          <Route path="/QLSanPham" element={<ProductManager />} />
           <Route path="/thongke" element={<ThongKe />} />
           <Route path="/qltaikhoan" element={<QLTaiKhoan />} />
           <Route path="/qltaikhoan/thongtin" element={<TTTaiKhoan />} />
