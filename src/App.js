@@ -14,7 +14,7 @@ function App() {
     <Router>
       <SideBar>
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<Home />}  />
           <Route path="/QLSanPham" element={<ProductManager />} />
           <Route path="/thongke" element={<ThongKe />} />
           <Route path="/qltaikhoan" element={<QLTaiKhoan />} />
