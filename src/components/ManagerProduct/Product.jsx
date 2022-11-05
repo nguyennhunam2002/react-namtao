@@ -65,7 +65,7 @@ const Product =[{
 }
 ]
   return (
-    <div class="container">
+    <div class="container-fluid">
       <div className="crud shadow-lg p-3 mb-5 mt-5 bg-body rounded">
         <div class="row ">
           <div class="col-sm-3 mt-5 mb-4 text-gred">
@@ -189,7 +189,7 @@ const Product =[{
                 </div>
                 <div class="form-group mt-3">
                   <input
-                    type="text"
+                    type="number"
                     class="form-control"
                     id="exampleInputEmail1"
                     aria-describedby="emailHelp"
@@ -198,10 +198,19 @@ const Product =[{
                 </div>
                 <div class="form-group mt-3">
                   <input
-                    type="text"
-                    class="form-control"
+                    type="number"
+                    class="form-control"  
                     id="exampleInputPassword1"
                     placeholder="Giá bán"
+                  />
+                </div>
+                
+                <div class="form-group mt-3">
+                  <input
+                    type="number"
+                    class="form-control"
+                    id="exampleInputPassword1"
+                    placeholder="Số lượng"
                   />
                 </div>
 

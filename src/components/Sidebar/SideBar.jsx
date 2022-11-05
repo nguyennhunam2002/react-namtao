@@ -24,28 +24,10 @@ const routes = [
     path: "/thongke",
     name: "Thống kê",
     icon: <AiOutlineOrderedList />,
-  },
-  {
+  },{
     path: "/qltaikhoan",
-    name: "Quản lý tài khoản",
+    name: "Quản lý khách hàng",
     icon: <FaUser />,
-    subRoutes: [
-      {
-        path: "/qltaikhoan/thongtin",
-        name: "Thông tin ",
-        icon: <FaUser />,
-      },
-      {
-        path: "/qltaikhoan/baomat",
-        name: "Bảo mật",
-        icon: <FaLock />,
-      },
-      {
-        path: "/qltaikhoan/thanhtoan",
-        name: "Thanh toán",
-        icon: <FaMoneyBill />,
-      },
-    ],
   },
   {
     path: "/dathang",
@@ -56,24 +38,6 @@ const routes = [
     path: "/settings",
     name: "Cài đặt",
     icon: <BiCog />,
-    exact: true,
-    subRoutes: [
-      {
-        path: "/settings/profile",
-        name: "Thông tin ",
-        icon: <FaUser />,
-      },
-      {
-        path: "/settings/2fa",
-        name: "Bảo mật",
-        icon: <FaLock />,
-      },
-      {
-        path: "/settings/billing",
-        name: "Thanh toán",
-        icon: <FaMoneyBill />,
-      },
-    ],
   },
   {
     path: "/like",
