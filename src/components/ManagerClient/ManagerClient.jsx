@@ -8,6 +8,7 @@ const [show, setShow] = useState(false);
 const handleClose = () => setShow(false);
 const handleShow = () => setShow(true);
 const Product =[{
+    'id':1,
     'anh':'https://kynguyenlamdep.com/wp-content/uploads/2022/06/co-nang-nhi-nhanh-700x700.jpg',
     'tn':'Tên ND1',
     'mail':'mail@gmail.com',
@@ -17,6 +18,7 @@ const Product =[{
     'ngsinh':'06-06-2002'
   },
   {
+    'id':2,
     'anh':'https://toigingiuvedep.vn/wp-content/uploads/2021/06/hinh-anh-gai-xinh-de-thuong-nhat-1.jpg',
     'tn':'Tên ND2',
     'mail':'mail@gmail.com',
@@ -26,6 +28,7 @@ const Product =[{
     'ngsinh':'06-06-2002'
   },
   {
+    'id':3,
     'anh':'https://kynguyenlamdep.com/wp-content/uploads/2022/06/co-nang-nhi-nhanh-700x700.jpg',
     'tn':'Tên ND3',
     'mail':'mail@gmail.com',
@@ -35,6 +38,7 @@ const Product =[{
     'ngsinh':'06-06-2002'
   },
   {
+    'id':4,
     'anh':'https://kynguyenlamdep.com/wp-content/uploads/2022/06/co-nang-nhi-nhanh-700x700.jpg',
     'tn':'Tên ND4',
     'mail':'mail@gmail.com',
@@ -44,6 +48,7 @@ const Product =[{
     'ngsinh':'06-06-2002'
   },
   {
+    'id':5,
     'anh':'https://kynguyenlamdep.com/wp-content/uploads/2022/06/co-nang-nhi-nhanh-700x700.jpg',
     'tn':'Tên ND5',
     'mail':'mail@gmail.com',
@@ -53,6 +58,7 @@ const Product =[{
     'ngsinh':'06-06-2002'
   },
   {
+    'id':6,
     'anh':'https://kynguyenlamdep.com/wp-content/uploads/2022/06/co-nang-nhi-nhanh-700x700.jpg',
     'tn':'Tên ND6',
     'mail':'mail@gmail.com',
@@ -62,6 +68,7 @@ const Product =[{
     'ngsinh':'06-06-2002'
   },
   {
+    'id':7,
     'anh':'https://kynguyenlamdep.com/wp-content/uploads/2022/06/co-nang-nhi-nhanh-700x700.jpg',
     'tn':'Tên ND7',
     'mail':'mail@gmail.com',
@@ -92,7 +99,7 @@ const Product =[{
             style={{ color: "green" }}
           >
             <h2>
-              <b>QL người dùng</b>
+              <b>QL khách hàng</b>
             </h2>
           </div>
         </div>
@@ -129,7 +136,9 @@ const Product =[{
                           class="view"
                           title="View"
                           data-toggle="tooltip"
-                          style={{ color: "#10ab80" }}
+                          style={{ color: "#10ab80",margin:"10px"}}
+                          onClick={handleShow}
+                          variant="primary"
                         >
                           <VisibilityTwoToneIcon/>
                         </a>
@@ -141,7 +150,7 @@ const Product =[{
                           class="delete"
                           title="Delete"
                           data-toggle="tooltip"
-                          style={{ color: "red" }}
+                          style={{ color: "red", margin:"10px"}}
                         >
                           <DeleteTwoToneIcon/>
                         </a>
@@ -153,8 +162,27 @@ const Product =[{
           </div>
         </div>
       </div>
+<div className="model_box">
+<Modal
+  show={show}
+  onHide={handleClose}
+  backdrop="static"
+  keyboard={false}
+>
+  <Modal.Header closeButton>
+    <Modal.Title>Chi tiết sản phẩm</Modal.Title>
+  </Modal.Header>
+  <Modal.Body>
+    cayvl
+  </Modal.Body>
+  <Modal.Footer>
+    <Button variant="secondary" onClick={handleClose}>
+      Đóng
+    </Button>
+  </Modal.Footer>
+</Modal>
+</div>
     </div>
   );
 }
-
 export default ClientManager;

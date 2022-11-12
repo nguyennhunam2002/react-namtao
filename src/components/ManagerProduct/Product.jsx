@@ -125,7 +125,7 @@ const Product =[{
                           class="view"
                           title="View"
                           data-toggle="tooltip"
-                          style={{ color: "#10ab80" }}
+                          style={{ color: "#10ab80",margin:"10px"}}
                         >
                           <VisibilityTwoToneIcon/>
                         </a>
@@ -137,7 +137,7 @@ const Product =[{
                           class="delete"
                           title="Delete"
                           data-toggle="tooltip"
-                          style={{ color: "red" }}
+                          style={{ color: "red", margin:"10px"}}
                         >
                           <DeleteTwoToneIcon/>
                         </a>
