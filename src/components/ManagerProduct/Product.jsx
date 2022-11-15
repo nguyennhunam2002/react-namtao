@@ -1,12 +1,39 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { Button, Modal, Input } from "react-bootstrap";
 import EditTwoToneIcon from '@mui/icons-material/EditTwoTone';
 import VisibilityTwoToneIcon from '@mui/icons-material/VisibilityTwoTone';
 import DeleteTwoToneIcon from '@mui/icons-material/DeleteTwoTone';
 function ProductManager() {
-const [show, setShow] = useState(false);
-const handleClose = () => setShow(false);
-const handleShow = () => setShow(true);
+  const [empdata, empdatachange] = useState(null);//Thêm link api get all user
+  const navigate = useNavigate();
+  const LoadDetail = (id) => {
+    navigate("/QLSanPham/detail/" + id);
+}
+const LoadEdit = (id) => {
+    navigate("/QLSanPham/edit/" + id);
+}
+const Removefunction = (id) => {
+    if (window.confirm('Bạn có chắn chắn muốn xóa tài khoản này?')) {
+        fetch("http://localhost:8000/employee/" + id, {
+            method: "DELETE"
+        }).then((res) => {
+            alert('Removed successfully.')
+            window.location.reload();
+        }).catch((err) => {
+            console.log(err.message)
+        })
+    }
+}
+useEffect(() => {
+    fetch("http://localhost:8000/employee").then((res) => {
+        return res.json();
+    }).then((resp) => {
+        empdatachange(resp);
+    }).catch((err) => {
+        console.log(err.message);
+    })
+}, [])
 const Product =[{
   'anh':'https://kynguyenlamdep.com/wp-content/uploads/2022/06/co-nang-nhi-nhanh-700x700.jpg',
   'tn':'Tên SP1',
@@ -89,7 +116,7 @@ const Product =[{
             </h2>
           </div>
           <div class="col-sm-3 offset-sm-1  mt-5 mb-4 text-gred">
-            <Button variant="primary" onClick={handleShow}>
+            <Button variant="primary" href="QLSanPham/create">
               Thêm sản phẩm
             </Button>
           </div>
@@ -121,15 +148,16 @@ const Product =[{
                       <td>{a.sl} cái</td>
                       <td>
                         <a
-                          href="#"
+                          href="QLSanPham/detail"
                           class="view"
                           title="View"
                           data-toggle="tooltip"
                           style={{ color: "#10ab80",margin:"10px"}}
+                          onClick={() => { LoadDetail(a.id) }}
                         >
                           <VisibilityTwoToneIcon/>
                         </a>
-                        <a href="#" class="edit" title="Edit" data-toggle="tooltip">
+                        <a href="QLSanPham/eidt" class="edit" title="Edit" data-toggle="tooltip" onClick={() => { LoadEdit(a.id) }}>
                           <EditTwoToneIcon/>
                         </a>
                         <a
@@ -138,6 +166,7 @@ const Product =[{
                           title="Delete"
                           data-toggle="tooltip"
                           style={{ color: "red", margin:"10px"}}
+                          onClick={() => { Removefunction(a.id) }}
                         >
                           <DeleteTwoToneIcon/>
                         </a>
@@ -147,85 +176,6 @@ const Product =[{
               </tbody>
             </table>
           </div>
-        </div>
-        <div className="model_box">
-          <Modal
-            show={show}
-            onHide={handleClose}
-            backdrop="static"
-            keyboard={false}
-          >
-            <Modal.Header closeButton>
-              <Modal.Title>Thêm sản phẩm</Modal.Title>
-            </Modal.Header>
-            <Modal.Body>
-              <form>
-                <div class="form-group">
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="exampleInputEmail1"
-                    aria-describedby="emailHelp"
-                    placeholder="Ảnh Sản phẩm"
-                  />
-                </div>
-                <div class="form-group mt-3">
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="exampleInputEmail1"
-                    aria-describedby="emailHelp"
-                    placeholder="Tên Sản phẩm"
-                  />
-                </div>
-                <div class="form-group mt-3">
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="exampleInputEmail1"
-                    aria-describedby="emailHelp"
-                    placeholder="Thương hiệu"
-                  />
-                </div>
-                <div class="form-group mt-3">
-                  <input
-                    type="number"
-                    class="form-control"
-                    id="exampleInputEmail1"
-                    aria-describedby="emailHelp"
-                    placeholder="Giá nhập"
-                  />
-                </div>
-                <div class="form-group mt-3">
-                  <input
-                    type="number"
-                    class="form-control"  
-                    id="exampleInputPassword1"
-                    placeholder="Giá bán"
-                  />
-                </div>
-                
-                <div class="form-group mt-3">
-                  <input
-                    type="number"
-                    class="form-control"
-                    id="exampleInputPassword1"
-                    placeholder="Số lượng"
-                  />
-                </div>
-
-                <button type="submit" class="btn btn-success mt-4">
-                  Thêm mới
-                </button>
-              </form>
-            </Modal.Body>
-
-            <Modal.Footer>
-              <Button variant="secondary" onClick={handleClose}>
-                Đóng
-              </Button>
-            </Modal.Footer>
-          </Modal>
         </div>
       </div>
     </div>

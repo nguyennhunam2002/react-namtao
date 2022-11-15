@@ -1,12 +1,40 @@
-import { useState } from "react";
+
 import { Button, Modal, Input } from "react-bootstrap";
 import EditTwoToneIcon from '@mui/icons-material/EditTwoTone';
 import VisibilityTwoToneIcon from '@mui/icons-material/VisibilityTwoTone';
 import DeleteTwoToneIcon from '@mui/icons-material/DeleteTwoTone';
+import { useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 function ClientManager() {
-const [show, setShow] = useState(false);
-const handleClose = () => setShow(false);
-const handleShow = () => setShow(true);
+  const [empdata, empdatachange] = useState(null);//Thêm link api get all user
+  const navigate = useNavigate();
+  const LoadDetail = (id) => {
+    navigate("/qltaikhoan/detail/" + id);
+}
+const LoadEdit = (id) => {
+    navigate("/qltaikhoan/edit/" + id);
+}
+const Removefunction = (id) => {
+    if (window.confirm('Bạn có chắn chắn muốn xóa tài khoản này?')) {
+        fetch("http://localhost:8000/employee/" + id, {
+            method: "DELETE"
+        }).then((res) => {
+            alert('Removed successfully.')
+            window.location.reload();
+        }).catch((err) => {
+            console.log(err.message)
+        })
+    }
+}
+useEffect(() => {
+    fetch("http://localhost:8000/employee").then((res) => {
+        return res.json();
+    }).then((resp) => {
+        empdatachange(resp);
+    }).catch((err) => {
+        console.log(err.message);
+    })
+}, [])
 const Product =[{
     'id':1,
     'anh':'https://kynguyenlamdep.com/wp-content/uploads/2022/06/co-nang-nhi-nhanh-700x700.jpg',
@@ -132,17 +160,16 @@ const Product =[{
                       <td>{a.ngsinh}</td>
                       <td>
                         <a
-                          href="#"
+                          href="qltaikhoan/detail"
                           class="view"
                           title="View"
                           data-toggle="tooltip"
                           style={{ color: "#10ab80",margin:"10px"}}
-                          onClick={handleShow}
-                          variant="primary"
+                          onClick={() => { LoadDetail(a.id) }}
                         >
                           <VisibilityTwoToneIcon/>
                         </a>
-                        <a href="#" class="edit" title="Edit" data-toggle="tooltip">
+                        <a href="qltaikhoan/edit" class="edit" title="Edit" data-toggle="tooltip" onClick={() => { LoadEdit(a.id) }}>
                           <EditTwoToneIcon/>
                         </a>
                         <a
@@ -151,6 +178,7 @@ const Product =[{
                           title="Delete"
                           data-toggle="tooltip"
                           style={{ color: "red", margin:"10px"}}
+                          onClick={() => { Removefunction(a.id) }}
                         >
                           <DeleteTwoToneIcon/>
                         </a>
@@ -162,26 +190,6 @@ const Product =[{
           </div>
         </div>
       </div>
-<div className="model_box">
-<Modal
-  show={show}
-  onHide={handleClose}
-  backdrop="static"
-  keyboard={false}
->
-  <Modal.Header closeButton>
-    <Modal.Title>Chi tiết sản phẩm</Modal.Title>
-  </Modal.Header>
-  <Modal.Body>
-    cayvl
-  </Modal.Body>
-  <Modal.Footer>
-    <Button variant="secondary" onClick={handleClose}>
-      Đóng
-    </Button>
-  </Modal.Footer>
-</Modal>
-</div>
     </div>
   );
 }
