@@ -1,36 +1,34 @@
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
-
-
 const ProductDetail = () => {
     const { pid } = useParams();
-    const [empdata, empdatachange] = useState({});
+    const [productdata, productdatachange] = useState({});
     useEffect(() => {
         fetch("#" + pid).then((res) => {
             return res.json();
         }).then((resp) => {
-            empdatachange(resp);
+            productdatachange(resp);
         }).catch((err) => {
             console.log(err.message);
         })
     }, []);
     return (
         <div class="container-fluid">
-            {/* <div className="row">
-                <div className="offset-lg-3 col-lg-6"> */}
                <div className="container">
             <div className="card row" style={{ "textAlign": "left" }}>
                 <div className="card-title">
-                    <h2>Employee Create</h2>
+                    <h2>Chi tiết sản phẩm</h2>
                 </div>
                 <div className="card-body"></div>
-                {empdata &&
+                {productdata &&
                     <div>
-                        <h2>The Employee name is : <b>{empdata.name}</b>  ({empdata.id})</h2>
-                        <h3>Contact Details</h3>
-                        <h5>Email is : {empdata.email}</h5>
-                        <h5>Phone is : {empdata.phone}</h5>
-                        <Link className="btn btn-danger" to="/QLSanPham">Back to Listing</Link>
+                        <img src={productdata.Images} width={200}></img>
+                        <h5>Tên sản phẩm: {productdata.ProductName}</h5>
+                        <h5>Tên thương hiệu: {productdata.BrandName}</h5>
+                        <h5>Giá nhập khẩu: {productdata.ImportPrice}</h5>
+                        <h5>Giá Bán: {productdata.Price}</h5>
+                        <h5>Số lượng: {productdata.Quantity}</h5>
+                        <Link className="btn btn-danger" to="/QLSanPham">Quay lại danh sách</Link>
                     </div>
                 }
             </div>
